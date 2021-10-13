@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #0a2a43;
+        min-height: 1500px;
+      }
+
+      section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(to top, #0a2a43, transparent);
+        z-index: 10000;
+      }
+
+      section::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0a2a43;
+        z-index: 10000;
+        mix-blend-mode: color;
+      }
+
+      section img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+
+      #text {
+        position: relative;
+        color: #fff;
+        font-size: 10vw;
+        z-index: 1;
+      }
+
+      #road {
+        z-index: 2;
+      }
+
+      .content {
+        margin: 100px 150px;
+      }
+
+      #topic {
+        color: #fff;
+        font-size: 2.5em;
+      }
+
+      .info {
+        margin-top: 30px;
+        color: #fff;
+        /* font-size: 14pt; */
+        line-height: 23pt;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <img src="https://parallax-scrolling.netlify.app/img/bg.jpg" id="bg" />
+      <img
+        src="https://parallax-scrolling.netlify.app/img/moon.png"
+        id="moon"
+      />
+      <img
+        src="https://parallax-scrolling.netlify.app/img/mountain.png"
+        id="mountain"
+      />
+      <img
+        src="https://parallax-scrolling.netlify.app/img/road.png"
+        id="road"
+      />
+      <h2 id="text">Into The Moon</h2>
+    </section>
+    <div class="content">
+      <h2 id="topic">Complex Parallax Background Scrolling</h2>
+      <p class="info">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit,
+        amet consectetur adipisicing elit. Non provident dolores voluptatibus
+        molestiae. Eos, in iste blanditiis aliquid delectus aliquam, sed
+        inventore impedit possimus totam minima necessitatibus nam veniam? Harum
+        praesentium itaque sequi! Recusandae, aut quia eveniet pariatur ab sequi
+        ad in? Dolorem sunt tempore, odit repellendus iusto, culpa nemo modi
+        nihil eligendi placeat accusantium ducimus, nulla aperiam deserunt ex!
+        Eveniet, impedit ex in suscipit voluptatibus laborum, dolorem magni
+        distinctio velit excepturi dolorum fugit? Reprehenderit excepturi
+        voluptate consequatur nisi nihil aliquid iste, porro dolor earum facilis
+        accusantium ullam sed necessitatibus, suscipit iure praesentium,
+        reiciendis error sunt voluptatibus. Modi dignissimos ipsam eius
+        voluptatum voluptatem? Officia deserunt quisquam beatae quod iste, ad
+        facere non numquam mollitia aspernatur laborum in et recusandae eos
+        explicabo dolore omnis dolorum est voluptates dolores quibusdam ab
+        corrupti cumque illo! In nulla distinctio excepturi esse debitis
+        accusamus voluptatibus quidem aperiam molestias assumenda? Omnis
+        laudantium illo reiciendis odit exercitationem.
+      </p>
+    </div>
+    <script>
+      let bg = document.getElementById("bg");
+      let moon = document.getElementById("moon");
+      let mountain = document.getElementById("mountain");
+      let road = document.getElementById("road");
+      let text = document.getElementById("text");
+
+      window.addEventListener("scroll", () => {
+        var value = window.scrollY;
+
+        bg.style.top = value * 0.5 + "px";
+        moon.style.left = -value * 0.5 + "px";
+        mountain.style.top = -value * 0.15 + "px";
+        road.style.top = value * 0.15 + "px";
+        text.style.top = value * 1 + "px";
+      });
+    </script>
+  </body>
+</html>
